@@ -15,4 +15,6 @@ jobs:
         uses: astral-sh/setup-uv@v6
         with:
           version: "latest"
-          
+      
+      - name: Execute the tests
+        run: uv run pytest -v
