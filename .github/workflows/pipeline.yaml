@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies (with dev group)
         run: uv sync --dev
 
-      # - name: Force install pytest-cov (workaround)
-      #   run: uv pip install pytest-cov
+      - name: Force install pytest-cov (workaround)
+        run: uv pip install pytest-cov
 
       - name: Run tests
         run: uv run pytest -s -x --cov=fastapi_lesson -vv
