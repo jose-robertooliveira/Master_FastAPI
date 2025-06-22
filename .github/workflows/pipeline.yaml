@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -18,10 +18,11 @@ jobs:
         uses: astral-sh/setup-uv@v6
         with:
           version: "latest"
-      - name: Install dependencies
+      
+      - name: Install dependencies (with dev group)
         run: uv sync --dev
 
-      - name: Ensure pytest-cov is available
+      - name: Force install pytest-cov (workaround)
         run: uv pip install pytest-cov
 
       - name: Run tests
