@@ -33,12 +33,5 @@ jobs:
       - name: Sync dependencies (including dev)
         run: uv sync --extra dev --frozen
 
-      - name: Export env variables from .env secret
-        run: |
-          echo "${{ secrets.DOTENV }}" > .env
-          set -o allexport
-          source .env
-          set +o allexport
-
       - name: Run tests with coverage
         run: uv run --frozen pytest -s -x --cov=fastapi_lesson -vv
