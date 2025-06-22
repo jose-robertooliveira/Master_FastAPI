@@ -6,7 +6,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Instalar o python
+      - name: Checkout code
+        uses: actions/checkout@v4 
+
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.13'
@@ -20,5 +23,5 @@ jobs:
         run: uv sync --dev 
 
       - name: Execute the tests using Taskipy
-        run: uv run task test 
+        run: uv run task test
         
