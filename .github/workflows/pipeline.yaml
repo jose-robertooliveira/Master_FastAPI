@@ -17,4 +17,4 @@ jobs:
           version: "latest"
       
       - name: Execute the tests
-        run: uv run pytest -v
+        run: uv run task test
