@@ -22,5 +22,6 @@ jobs:
       - name: Install dependencies
         run: uv sync --dev 
 
-      - name: Execute the tests using Taskipy
-        run: uv run python -m task test
+      - name: Run tests directly with pytest
+        run: uv run pytest -s -x --cov=fastapi_lesson -vv
+        
