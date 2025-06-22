@@ -7,7 +7,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4 
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -20,8 +20,7 @@ jobs:
           version: "latest"
       
       - name: Install dependencies
-        run: uv sync --dev 
+        run: uv sync --dev
 
-      - name: Run tests directly with pytest
-        run: uv run pytest -s -x --cov=fastapi_lesson -vv
-        
+      - name: Execute the tests using Taskipy (Module Call)
+        run: uv run pytest 
