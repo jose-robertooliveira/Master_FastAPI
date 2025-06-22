@@ -23,4 +23,4 @@ jobs:
         run: uv sync --dev 
 
       - name: Execute the tests using Taskipy
-        run: uv run task test
+        run: uv run python -m task test
