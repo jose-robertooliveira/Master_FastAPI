@@ -15,4 +15,3 @@ ENV PATH="/app/.venv/bin:$PATH"
 EXPOSE 8000
 
 ENTRYPOINT ["./entrypoint.sh"]
-#CMD ["uvicorn", "fastapi_lesson.app:app", "--host", "0.0.0.0", "--port", "8000"]
