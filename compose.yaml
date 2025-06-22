@@ -2,11 +2,11 @@ version: "3.8"
 
 services:
   app_db:
-    image: postgres
+    image: postgres:17
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: app_db
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     volumes:
       - pgdata:/var/lib/postgresql/data
     ports:
@@ -20,7 +20,7 @@ services:
     depends_on:
       - app_db
     environment:
-      DATABASE_URL: postgresql+psycopg://user:root@app_db:5432/app_db
+      DATABASE_URL: ${DATABASE_URL}
 
 volumes:
   pgdata:
