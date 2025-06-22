@@ -1,16 +1,10 @@
-name: Test
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+name: Pipeline
+on: [push, pull_request]
 
 jobs:
   test:
     runs-on: ubuntu-latest
+
     services:
       postgres:
         image: postgres:17
@@ -27,17 +21,18 @@ jobs:
           --health-retries=5
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - name: Install uv and Python
+      - name: Setup Python with uv
         uses: astral-sh/setup-uv@v6
         with:
-          python-version: 3.13.3
+          python-version: '3.13'
 
-      - name: Install dependencies including dev
+      - name: Sync dependencies (including dev)
         run: uv sync --extra dev --frozen
 
-      - name: Run tests
+      - name: Run tests with coverage
         env:
           DATABASE_URL: postgresql+asyncpg://user:root@localhost:5432/app_db
           SECRET_KEY: test_secret
