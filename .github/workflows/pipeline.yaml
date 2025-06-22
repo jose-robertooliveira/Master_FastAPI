@@ -24,4 +24,3 @@ jobs:
 
       - name: Execute the tests using Taskipy
         run: uv run task test
-        
