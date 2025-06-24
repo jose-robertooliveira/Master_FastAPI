@@ -2,6 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=python
 
 # project stuff
+/routers/leftovers.txt
+/leftovers.txt
 database.db
 
 ### Python ###
